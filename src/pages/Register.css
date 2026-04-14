@@ -1,0 +1,105 @@
+/* Leveraging similar layout structure to Login.css */
+.register-wrapper {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.register-left {
+  flex: 1.2;
+  background-color: var(--bg-dark);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px;
+  color: var(--text-white);
+  background: linear-gradient(180deg, #0a0d14 0%, #1a233a 100%);
+}
+
+.left-content {
+  position: relative;
+  z-index: 10;
+  max-width: 500px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.register-hero {
+  /* You can generate a different background image for register */
+  background-image: url('/login_boy.webp');
+  opacity: 0.4;
+}
+
+.register-right {
+  flex: 1;
+  background-color: var(--bg-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+.register-form-container {
+  width: 100%;
+  max-width: 420px;
+  padding: 24px 0;
+}
+
+.register-form-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+}
+
+.back-home-link {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  font-weight: 700;
+  margin-bottom: 24px;
+  display: inline-block;
+  transition: color 0.2s;
+}
+
+.back-home-link:hover {
+  color: var(--primary-red);
+}
+
+.terms-agreement {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.terms-agreement input {
+  margin-top: 4px;
+}
+
+.terms-agreement label {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--text-light);
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 500;
+}
+
+.terms-agreement strong {
+  color: var(--text-dark);
+}
+
+@media (max-width: 900px) {
+  .register-wrapper {
+    flex-direction: column;
+  }
+  .register-left {
+    padding: 40px 20px;
+    min-height: 40vh;
+  }
+  .register-right {
+    padding: 24px 20px;
+  }
+}

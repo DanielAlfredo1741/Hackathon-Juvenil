@@ -1,0 +1,203 @@
+/* Studio.css */
+
+.studio-header {
+  margin-bottom: 40px;
+}
+
+.studio-layout {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.studio-preview {
+  flex: 1.2;
+}
+
+.preview-image-container {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: #111827;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  /* Simulating the hands background */
+  background-image: radial-gradient(circle at center, #1f2937 0%, #030712 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+}
+
+.preview-tools {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  gap: 12px;
+}
+
+.tool-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tool-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.music-tag {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background-color: var(--border-color-light);
+  color: var(--text-dark);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 8px 16px;
+  border-radius: var(--border-radius-full);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.music-tag .music-icon {
+  color: var(--primary-red);
+}
+
+.studio-controls {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--primary-red);
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.format-tabs {
+  display: flex;
+  gap: 12px;
+}
+
+.format-tab {
+  flex: 1;
+  padding: 12px;
+  background-color: var(--border-color);
+  color: var(--text-light);
+  font-weight: 800;
+  font-size: 0.8rem;
+  border-radius: var(--border-radius-sm);
+  text-align: center;
+}
+
+.format-tab.active {
+  background-color: var(--primary-red);
+  color: white;
+  box-shadow: 0 4px 12px rgba(217, 38, 53, 0.3);
+}
+
+.manifesto-editor {
+  background-color: var(--bg-white);
+  border-radius: var(--border-radius-md);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.editor-textarea {
+  width: 100%;
+  min-height: 120px;
+  border: none;
+  background: transparent;
+  font-size: 1.25rem;
+  font-weight: 500;
+  resize: none;
+  font-family: inherit;
+  color: var(--text-dark);
+}
+
+.editor-textarea:focus {
+  outline: none;
+}
+
+.tags-container {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.hashtag {
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 6px 12px;
+  border-radius: var(--border-radius-full);
+}
+
+.btn-add-tag {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-light);
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 6px 12px;
+  border-radius: var(--border-radius-full);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.media-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.media-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 24px;
+  border-radius: var(--border-radius-md);
+  color: var(--text-light);
+  font-weight: 700;
+  font-size: 0.8rem;
+  box-shadow: 0 0 0 1px var(--border-color) inset;
+}
+
+.media-btn:hover {
+  background-color: var(--bg-white);
+  color: var(--text-dark);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-publish {
+  padding: 18px;
+  font-size: 1rem;
+  margin-top: 16px;
+  box-shadow: 0 4px 16px rgba(217, 38, 53, 0.4);
+}
+
+@media (max-width: 900px) {
+  .studio-layout {
+    flex-direction: column;
+  }
+}

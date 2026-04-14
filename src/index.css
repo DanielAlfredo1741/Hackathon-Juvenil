@@ -1,0 +1,124 @@
+:root {
+  /* Core Colors */
+  --bg-dark: #0a0d14; /* Always dark background parts */
+  --bg-light: #f8f9fc; /* Main background, transforms in dark mode */
+  --bg-white: #ffffff; /* Card background, transforms in dark mode */
+  
+  --primary-red: #D92635; /* O Futuro é Cinético red */
+  --primary-red-hover: #b81c28;
+  --text-dark: #1e293b; /* Main readable text, transforms */
+  --text-light: #64748b; /* Secondary text, transforms */
+  --text-white: #ffffff; /* Always white */
+  
+  --accent-gold: #c6ac5b; /* Lupangola Editorial */
+  
+  /* Layout borders & accents (Transforms) */
+  --border-color: #e2e8f0;
+  --border-color-light: #f1f5f9;
+  
+  /* Status Colors */
+  --status-green: #10b981; /* Verdadeiro */
+  --status-yellow: #f59e0b; /* Duvidoso */
+  --status-red: #ef4444; /* Falso */
+  --status-green-light: #d1fae5;
+  --status-yellow-light: #fef3c7;
+  --status-red-light: #fee2e2;
+
+  /* Layout */
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 24px;
+  --border-radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme='dark'] {
+  --bg-light: #020617; /* Very dark background */
+  --bg-white: #0f172a; /* Card dark blue */
+  --text-dark: #f8fafc; /* Become light text for readability */
+  --text-light: #94a3b8; /* Become lighter muted text */
+  --border-color: #334155;
+  --border-color-light: #1e293b;
+  
+  --status-green-light: rgba(16, 185, 129, 0.2);
+  --status-yellow-light: rgba(245, 158, 11, 0.2);
+  --status-red-light: rgba(239, 68, 68, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.2s ease;
+}
+
+/* Common Components */
+.btn-primary {
+  background-color: var(--primary-red);
+  color: var(--text-white);
+  padding: 12px 24px;
+  border-radius: var(--border-radius-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-red-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.input-field {
+  width: 100%;
+  padding: 14px 0;
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  background: transparent;
+  font-size: 1rem;
+  color: var(--text-dark);
+}
+
+.input-field:focus {
+  border-bottom-color: var(--text-dark);
+  outline: none;
+}
+
+/* Layout helpers */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
