@@ -93,10 +93,9 @@ export default function Landing() {
             <p className="info-desc">
               Obtenha todas as informações necessárias sobre como tratar o seu Bilhete de Identidade, Passaporte e outras documentações vitais.
             </p>
-            {/* Como não há um link fornecido ainda, usaremos um botão href como placeholder ou redirecionamento*/}
-            <button className="btn-primary" style={{width: 'auto', padding: '12px 32px', fontSize: '1rem'}}>
+            <Link to="/informacoes" className="btn-primary" style={{width: 'auto', padding: '12px 32px', fontSize: '1rem', display: 'inline-block'}}>
               SABER MAIS
-            </button>
+            </Link>
           </div>
         </div>
       </section>

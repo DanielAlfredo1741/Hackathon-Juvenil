@@ -6,6 +6,7 @@ import Feed from './pages/Feed';
 import Studio from './pages/Studio';
 import Verify from './pages/Verify';
 import Profile from './pages/Profile';
+import Information from './pages/Information';
 import Navigation from './components/Navigation';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
                 <Route path="/studio" element={<Studio />} />
                 <Route path="/verify" element={<Verify />} />
                 <Route path="/profile" element={<Profile />} />
+                <Route path="/informacoes" element={<Information />} />
                 <Route path="*" element={<Navigate to="/feed" replace />} />
               </Routes>
             </main>
