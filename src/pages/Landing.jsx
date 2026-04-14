@@ -81,6 +81,22 @@ export default function Landing() {
                 <h3>3. Amplifica</h3>
                 <p>Usa o Manifesto Criativo para construir publicações poderosas ou partilha de forma orgânica no nosso feed global.</p>
              </div>
+           </div>
+        </div>
+      </section>
+
+      {/* OBTER INFORMAÇÕES SECTION */}
+      <section className="info-section">
+        <div className="container text-center">
+          <div className="info-content mx-auto">
+            <h2 className="info-title">Obter Informações</h2>
+            <p className="info-desc">
+              Obtenha todas as informações necessárias sobre como tratar o seu Bilhete de Identidade, Passaporte e outras documentações vitais.
+            </p>
+            {/* Como não há um link fornecido ainda, usaremos um botão href como placeholder ou redirecionamento*/}
+            <button className="btn-primary" style={{width: 'auto', padding: '12px 32px', fontSize: '1rem'}}>
+              SABER MAIS
+            </button>
           </div>
         </div>
       </section>

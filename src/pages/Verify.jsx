@@ -1,8 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Search, CheckCircle, AlertTriangle, XCircle, Share2, Upload } from 'lucide-react';
+import { verifyContent } from '../services/verificationService';
 import './Verify.css';
 
 export default function Verify() {
+  const [textInput, setTextInput] = useState('');
+  const [imageFile, setImageFile] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [result, setResult] = useState({ true: 85, doubtful: 12, false: 3 });
+  const [errorMsg, setErrorMsg] = useState('');
+
+  const handleVerify = async () => {
+    setIsLoading(true);
+    setErrorMsg('');
+    try {
+      const response = await verifyContent({ text: textInput, image: imageFile });
+      setResult(response.probabilities);
+    } catch (err) {
+      setErrorMsg(err.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleFileChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      setImageFile(e.target.files[0]);
+    }
+  };
+
   return (
     <div className="container view-container">
       <div className="verify-header">
@@ -24,41 +50,55 @@ export default function Verify() {
               type="text" 
               placeholder="Cole o link, texto ou carregue uma imagem..." 
               className="scanner-input"
+              value={textInput}
+              onChange={(e) => setTextInput(e.target.value)}
+              disabled={isLoading}
             />
             <div className="scanner-actions">
                <label className="upload-btn" title="Carregar Imagem para Verificar IA">
-                 <input type="file" accept="image/*" style={{display: 'none'}} />
-                 <Upload size={20} />
+                 <input type="file" accept="image/*" style={{display: 'none'}} onChange={handleFileChange} disabled={isLoading} />
+                 <Upload size={20} color={imageFile ? "var(--status-green)" : "currentColor"} />
                </label>
-               <button className="scanner-btn"><Search size={20} /></button>
+               <button className="scanner-btn" onClick={handleVerify} disabled={isLoading}>
+                 <Search size={20} />
+               </button>
             </div>
           </div>
+          {imageFile && <p style={{fontSize: '0.75rem', marginTop: '8px', color: 'var(--status-green)'}}>Imagem selecionada: {imageFile.name}</p>}
         </div>
       </div>
 
-      <div className="status-cards">
-        <div className="status-card circle-layout green">
-          <div className="percent-text green-text">85%</div>
-          <div className="status-text">
-            <strong>VERDADEIRO</strong>
-            <span>PROBABILIDADE</span>
+      {errorMsg && <p style={{color: 'var(--status-red)', textAlign: 'center', fontWeight: 'bold', marginBottom: '24px'}}>{errorMsg}</p>}
+      
+      {isLoading ? (
+        <div style={{textAlign: 'center', marginTop: '40px', fontSize: '1.2rem', color: 'var(--text-light)', minHeight: '220px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+           A contactar os modelos de IA (Simulado)...
+        </div>
+      ) : (
+        <div className="status-cards">
+          <div className="status-card circle-layout green">
+            <div className="percent-text green-text">{result.true}%</div>
+            <div className="status-text">
+              <strong>VERDADEIRO</strong>
+              <span>PROBABILIDADE</span>
+            </div>
+          </div>
+          <div className="status-card circle-layout yellow">
+            <div className="percent-text yellow-text">{result.doubtful}%</div>
+            <div className="status-text">
+              <strong>DUVIDOSO</strong>
+              <span>INCERTEZA DETETADA</span>
+            </div>
+          </div>
+          <div className="status-card circle-layout red">
+            <div className="percent-text red-text">{result.false}%</div>
+            <div className="status-text">
+              <strong>FALSO / IA</strong>
+              <span>MANIPULAÇÃO DETETADA</span>
+            </div>
           </div>
         </div>
-        <div className="status-card circle-layout yellow">
-          <div className="percent-text yellow-text">12%</div>
-          <div className="status-text">
-            <strong>DUVIDOSO</strong>
-            <span>INCERTEZA DETETADA</span>
-          </div>
-        </div>
-        <div className="status-card circle-layout red">
-          <div className="percent-text red-text">3%</div>
-          <div className="status-text">
-            <strong>FALSO / IA</strong>
-            <span>MANIPULAÇÃO DETETADA</span>
-          </div>
-        </div>
-      </div>
+      )}
 
       <div className="section-title-wrapper">
         <div className="red-bar"></div>

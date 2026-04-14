@@ -172,6 +172,55 @@
   .steps-grid { grid-template-columns: 1fr; }
 }
 
+/* INFO SECTION */
+.info-section {
+  padding: 80px 24px;
+  background-color: var(--bg-light);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.info-content {
+  max-width: 700px;
+  background-color: var(--bg-white);
+  padding: 48px;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.info-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: var(--primary-red);
+}
+
+.info-title {
+  font-size: 2.2rem;
+  margin-bottom: 16px;
+  color: var(--text-dark);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.info-desc {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 900px) {
+  .info-content { padding: 32px 24px; }
+  .info-title { font-size: 1.8rem; }
+}
+
 /* FOOTER */
 .landing-footer {
   background-color: #0c1220;
