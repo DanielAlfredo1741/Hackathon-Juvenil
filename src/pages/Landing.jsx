@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ShieldCheck, Users, Zap, Search } from 'lucide-react';
+import youngPersonNews from '../assets/young_person_news.png';
 import './Landing.css';
 
 export default function Landing() {
@@ -49,9 +50,10 @@ export default function Landing() {
              <p>Acreditamos que, quando informada de forma correta e sem ruído, uma Nação é inquebrável. O nosso foco principal é ajudar e educar a "Geração Z" na verificação ativa de factos (<em>Fact-Checking</em>), promoção de pensamento crítico e na documentação cívica diária nas ruas de Luanda e além, combatendo assim as "Fake News".</p>
            </div>
            <div className="about-visual">
-              <div className="graphic-placeholder">
-                 <ShieldCheck size={120} color="rgba(255,255,255,0.1)" style={{position: 'absolute', right: '-20px', bottom: '-20px'}} />
-                 <h3>A nossa voz <br/><span style={{color: 'var(--primary-red)'}}>não</span> tem preço.</h3>
+              <div className="graphic-placeholder" style={{ backgroundImage: `url(${youngPersonNews})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                 <div className="overlay" style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(10, 15, 30, 0.65)', zIndex: 1 }}></div>
+                 <ShieldCheck size={120} color="rgba(255,255,255,0.05)" style={{position: 'absolute', right: '-20px', bottom: '-20px', zIndex: 1}} />
+                 <h3 style={{ color: '#ffffff', textShadow: '0px 4px 12px rgba(0,0,0,0.8)', zIndex: 2, position: 'relative' }}>A nossa voz <br/><span style={{color: 'var(--primary-red)'}}>não</span> tem preço.</h3>
               </div>
            </div>
         </div>
